@@ -16,20 +16,103 @@
         }
     </style>
 </head>
-<body class="lato mx-auto max-w-[90%]">
-    <nav class="flex justify-between items-center mt-4">
-        <div class="flex gap-2">
-            <img src="./images/logo.webp" alt="">
-            <h2 class="text-3xl text-[#131313] font-bold">Peddy</h2>
+<body class="lato">
+    <section class="mx-auto max-w-[90%]">
+        <nav class="navbar flex justify-between items-center mt-4">
+            <div class="flex gap-2">
+                <img src="./images/logo.webp" alt="">
+                <h2 class="text-3xl text-[#131313] font-bold">Peddy</h2>
+            </div>
+            <div class="list-none gap-8 hidden md:flex lg:flex">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            </div>
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost md:hidden lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16" />
+                  </svg>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+            <div>
+                <img src="./images/icons8-avatar-30.png" alt="">
+            </div>
+        </nav>
+        <section class="flex flex-col mt-14 items-center gap-8">
+            <h4 class="text-[#131313] opacity-60 text-xl">Bringing Families Together ❤️‍🔥</h4>
+            <h1 class="text-[#131313] text-bold text-6xl text-center">Your Path to Adoption <br> Starts Here</h1>
+            <p class="text-[#131313] text-xl text-center">If you want to adapt a pet that really makes you fell happy, then this is for you.
+                Not only it's make you happy but also it's beneficial for your mental helath.
+            </p>
+            <div>
+                <button class="btn btn-primary">View More</button>
+            </div>
+            <div>
+                <img src="./images/pet.webp" alt="">
+            </div>
+            <div class="">
+                <h3 class="text-[#131313] text-4xl text-bold text-center mb-4">Adapt Your Best Friends</h3>
+                <p class="text-[#131313] text-xl text-center opacity-70">This exacly the Best Place to Adapt your Pet Friends. Who can Make you happy.</p>
+            </div>
+        </section>
+        <!-- API Section -->
+        <section>
+    </section>
+
+    </section>
+    <!-- footer section -->
+     <section class="bg-[#131313] flex gap-8 justify-around mt-5 flex-col mx-auto lg:flex md:flex-row lg:flex-row">
+        <div class="mt-8">
+            <div class="flex gap-2 mb-5">
+                <img src="./images/logo.webp" alt="">
+                <h2 class="text-3xl text-white font-bold">Peddy</h2>
+            </div>
+            <div class="text-white">
+                <p>Location: av. Washington 165, NY CA </p>
+            <p>54003</p>
+            <p>Phone: +31 85 964 47 25</p>
+            <p>Email: info@yourdomain.com</p>
+            <p>Openings hours: 9.00 AM - 5.00 PM</p>
+            </div>
+            <div class="flex gap-2">
+                <li><a href="#"><img class="w-10" src="./images/icons8-facebook-logo-48.png" alt=""></a></li>
+                <li><a href="#"><img class="bg-white w-10" src="./images/icons8-twitter-50 (1).png" alt=""></a></li>
+                <li><a href="#"><img class="w-10" src="./images/icons8-youtube-48.png" alt=""></a></li>
+                <li><a href="#"><img class="w-10" src="./images/icons8-instagram-logo-50.png" alt=""></a></li>
+            </div>
         </div>
-        <div class="flex list-none gap-8">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Contact</a></li>
+        <div class="text-white opacity-90 list-none md:mt-8 lg:mt-8">
+            <h3 class="text-2xl">Useful Links:</h3>
+            <li><a class="opacity-60" href="#">Home</a></li>
+            <li><a class="opacity-60" href="#">About Us</a></li>
+            <li><a class="opacity-60" href="#">Contact US</a></li>
+            <li><a  class="opacity-60"href="#">Foundation</a></li>
+            <li><a class="opacity-60" href="#">Animals</a></li>
         </div>
-        <div>
-            <img src="./images/icons8-avatar-30.png" alt="">
+        <div class="flex flex-col gap-5 md:mt-8 lg:mt-8">
+            <h3 class="text-white text-2xl">Drop a Message:</h3>
+            <input type="text" class="input rounded-full w-1/2 md:w-full lg:w-full bg-transparent text-gray-50 text-xl border-white placeholder:text-[1rem] placeholder:opacity-60 placeholder:text-bold placeholder:text-white" placeholder="Enter Your Email">
+            <div class="flex md:justify-center lg:justify-center">
+                <button class="btn btn-success w-2/5 lg:w-full md:w-full">Subscribe</button>
+            </div>
         </div>
-    </nav>
+     </section>
 </body>
 </html>
