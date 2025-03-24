@@ -28,7 +28,7 @@
                 <li><a href="#">Shop</a></li>
                 <li><a href="#">Contact</a></li>
             </div>
-            <div class="dropdown">
+            <div class="dropdown md:hidden lg:hidden">
                 <div tabindex="0" role="button" class="btn btn-ghost md:hidden lg:hidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -62,24 +62,33 @@
                 Not only it's make you happy but also it's beneficial for your mental helath.
             </p>
             <div>
-                <button class="btn btn-primary">View More</button>
+                <a href="#adapt"> <button class="btn btn-primary">View More</button></a>
             </div>
             <div>
                 <img src="./images/pet.webp" alt="">
             </div>
             <div class="">
-                <h3 class="text-[#131313] text-4xl text-bold text-center mb-4">Adapt Your Best Friends</h3>
+                <h3 id="adapt" class="text-[#131313] text-4xl text-bold text-center mb-4">Adapt Your Best Friends</h3>
                 <p class="text-[#131313] text-xl text-center opacity-70">This exacly the Best Place to Adapt your Pet Friends. Who can Make you happy.</p>
             </div>
         </section>
         <!-- API Section -->
-        <section>
-    </section>
+        <section class="">
+            <div class="flex justify-around mt-7" id="categories-container">
+            </div>
+            <div class="flex justify-between mt-8">
+                <h2 class="text-2xl">Best Deal For you!</h2>
+                <button class="btn btn-primary bold">Sort by Price</button>
+            </div>
+            <div id="dogs-list">
+
+            </div>
+        </section>
 
     </section>
     <!-- footer section -->
      <section class="bg-[#131313] flex gap-8 justify-around mt-5 flex-col mx-auto lg:flex md:flex-row lg:flex-row">
-        <div class="mt-8">
+        <div class="mt-8 ml-5 md:ml-0 lg:ml-0">
             <div class="flex gap-2 mb-5">
                 <img src="./images/logo.webp" alt="">
                 <h2 class="text-3xl text-white font-bold">Peddy</h2>
@@ -98,7 +107,7 @@
                 <li><a href="#"><img class="w-10" src="./images/icons8-instagram-logo-50.png" alt=""></a></li>
             </div>
         </div>
-        <div class="text-white opacity-90 list-none md:mt-8 lg:mt-8">
+        <div class="text-white opacity-90 list-none md:mt-8 lg:mt-8 ml-5 md:ml-0 lg:ml-0">
             <h3 class="text-2xl">Useful Links:</h3>
             <li><a class="opacity-60" href="#">Home</a></li>
             <li><a class="opacity-60" href="#">About Us</a></li>
@@ -106,7 +115,7 @@
             <li><a  class="opacity-60"href="#">Foundation</a></li>
             <li><a class="opacity-60" href="#">Animals</a></li>
         </div>
-        <div class="flex flex-col gap-5 md:mt-8 lg:mt-8">
+        <div class="flex flex-col gap-5 md:mt-8 lg:mt-8 ml-5 md:ml-0 lg:ml-0">
             <h3 class="text-white text-2xl">Drop a Message:</h3>
             <input type="text" class="input rounded-full w-1/2 md:w-full lg:w-full bg-transparent text-gray-50 text-xl border-white placeholder:text-[1rem] placeholder:opacity-60 placeholder:text-bold placeholder:text-white" placeholder="Enter Your Email">
             <div class="flex md:justify-center lg:justify-center">
@@ -114,5 +123,7 @@
             </div>
         </div>
      </section>
+
+     <script src="./script/main.js"></script>
 </body>
 </html>
