@@ -18,7 +18,7 @@ const categoriesBtn = async (data) => {
 
 const activeBtn = (data) => {
    const btn = document.querySelectorAll(`btn-${data}`);
-    console.log(btn);   
+    console.log(btn);
 };
 
 const getPets = async (category) => {
