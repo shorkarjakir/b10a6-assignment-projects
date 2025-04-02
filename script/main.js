@@ -16,6 +16,24 @@ const categoriesBtn = async (data) => {
     activeBtn(data);
 };
 
+const adaptbtn = (petID) => {
+    const adapt = document.getElementById(`adapt-${petID}`);
+    setTimeout(() => {
+      adapt.innerText = '3';
+    }, 1000);
+    setTimeout(() => {
+      adapt.innerText = '2';
+    }, 2000);
+    setTimeout(() => {
+      adapt.innerText = '1';
+    }, 3000);
+    setTimeout(() => {
+      adapt.innerText = 'Adopted';
+      adapt.classList.add('btn-disabled')
+      adapt.disabled = true;
+    }, 4000);
+};
+
 const activeBtn = (data) => {
    const btn = document.getElementById(`btn-${data}`);
     const btns = document.getElementsByClassName('btn-id');
@@ -23,6 +41,30 @@ const activeBtn = (data) => {
         b.classList.remove('btn-info')
     }
     btn.classList.add('btn-info')
+};
+
+const sortByPrice = async (data) => {
+    const petsData = await fetchapi('https://openapi.programming-hero.com/api/peddy/pets');
+    const petsPrice = petsData.pets;
+    sorting(petsPrice);
+};
+
+const sorting = (data) => {
+    data.sort((a, b) => {
+        const priceA = parseFloat(a.price);
+        const priceB = parseFloat(b.price);
+        return priceB - priceA;
+    });
+    displayPets(data);
+};
+
+const loadingSpinner = () => {
+    const spinner = document.getElementById('loader-spinner');
+    spinner.classList.remove('hidden');
+    setTimeout(() => {
+        spinner.classList.add('hidden');
+    }, 3000);
+    getPets();
 };
 
 const getPets = async (category) => {
@@ -93,7 +135,7 @@ const displayPets = (pets) => {
                 <div class="swap-on"><img class="w-7" src="./images/icons8-facebook-like-24 (1).png" alt=""></div>
             </label>
             </button>
-             <button class="btn text-green-600 text-bold">Adopt</button>
+             <button onclick="adaptbtn(${item.petId})" id="adapt-${item.petId}" class="btn text-green-600 text-bold">Adopt</button>
              <button onclick="detailsData(${item.petId})" class="btn text-green-600 text-bold">Details</button>
            </div>
         </div>
@@ -103,10 +145,11 @@ const displayPets = (pets) => {
 
 };
 
+
 const detailsData = async (id) => {
     const details = await fetchapi(`https://openapi.programming-hero.com/api/peddy/pet/${id}`);
     const detailsData = details.petData;
-    console.log(detailsData);
+    // console.log(detailsData);
     const detailsContainer = document.getElementById('modal-content')
     detailsContainer.innerHTML = `
     <div class="card w-full shadow-sm">
@@ -119,12 +162,14 @@ const detailsData = async (id) => {
     <h2 class="card-title">
              ${detailsData.pet_name}
            </h2>
-     <ul class="">
+          <ul class="">
                 <li class="flex gap-1 items-center"> <img class="w-7" src="./images/icons8-bulldog-30.png" >Breed: ${detailsData.breed === undefined || detailsData.breed === null ? 'No Name Available' : detailsData.breed}</li>
                 <li class="flex gap-1 items-center"> <img class="w-7" src="./images/icons8-age-24.png" alt=""> Birth: ${detailsData.date_of_birth === null || detailsData.date_of_birth === undefined ? 'No Date of Birth Available' : detailsData.date_of_birth}</li>
                 <li class="flex gap-1 items-center"> <img class="w-7" src="./images/icons8-gender-48.png" alt=""> Gender: ${detailsData.gender === undefined || detailsData.gender === null ? 'No Gender Available' : detailsData.gender}</li>
                 <li class="flex gap-1 items-center"> <img  class="w-7"src="./images/icons8-price-50.png" alt=""> Price: ${detailsData.price === undefined || detailsData.price === null ? 'NO Price available' : detailsData.price}</li>
            </ul>
+           <p class="mt-5 text-2xl">Details Information: </p>
+           <p class="mt-2 text-xs">${detailsData.pet_details}</p>
     </div>
      <div class="modal-action flex justify-center mb-5">
         <form method="dialog">
@@ -138,5 +183,5 @@ const detailsData = async (id) => {
 
 };
 
-getPets();
+loadingSpinner();
 getCatagories();
