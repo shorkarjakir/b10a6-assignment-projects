@@ -98,14 +98,15 @@
                 <button onclick="sortByPrice()" class="btn btn-primary bold">Sort by Price</button>
             </div>
              <!-- Loading spinner -->
-         <div id="loader-spinner" class="loader hidden">
+         <div id="loader-spinner" class="hidden loading loading-spinner loading-xl 
+         ml-[50%] mt-[20%] mb-[20%]">
 
          </div>
-            <div class="flex gap-5">
+            <div class="flex w-full gap-5">
                 <div class="grid w-3/4 relative gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10" 
                 id="pets-container">
                 </div>
-                <div class="w-1/4 border-2 mt-10 rounded-md shadow-md grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2" id="selected-item">
+                <div id="liked-container" class="w-1/4 h-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 border-2 mt-10 rounded-md shadow-md">
 
                 </div>
             </div>

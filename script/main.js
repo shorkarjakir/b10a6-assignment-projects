@@ -61,10 +61,34 @@ const sorting = (data) => {
 const loadingSpinner = () => {
     const spinner = document.getElementById('loader-spinner');
     spinner.classList.remove('hidden');
+    // getPets();
     setTimeout(() => {
-        spinner.classList.add('hidden');
-    }, 3000);
-    getPets();
+        // spinner.classList.add('hidden');
+        getPets();
+    }, 2000);
+};
+
+const loadingSpinnerOff = () => {
+    const spinner = document.getElementById('loader-spinner');
+    spinner.classList.add('hidden');
+    // getPets();
+};
+
+const likebtn = async(petID) => {
+  const pets = await fetchapi(`https://openapi.programming-hero.com/api/peddy/pet/${petID}`)
+  const eachPets = pets.petData;  ;
+    const like = document.getElementById(`like-${petID}`);
+    const likedContainer = document.getElementById('liked-container');
+    like.classList.add('btn-disabled');
+    like.disabled = true;
+    const div = document.createElement('div');
+    div.classList.add('m-2');
+    div.innerHTML = `
+    <img
+      class="w-full object-cover" src="${eachPets.image}"
+      alt="" />
+    `
+    likedContainer.append(div);
 };
 
 const getPets = async (category) => {
@@ -106,6 +130,7 @@ const displayPets = (pets) => {
     else{
         petsContainer.classList.add('grid');
     }
+    loadingSpinnerOff();
     pets.forEach((item) => {
         const div = document.createElement('div');
         // console.log(item);
@@ -127,14 +152,7 @@ const displayPets = (pets) => {
                 <li class="flex gap-1 items-center"> <img  class="w-7"src="./images/icons8-price-50.png" alt=""> Price: ${item.price === undefined || item.price === null ? 'NO Price available' : item.price}</li>
            </ul>
            <div class="card-actions mt-4">
-             <button class="btn">
-             <label class="swap swap-flip">
-                <!-- this hidden checkbox controls the state -->
-                <input type="checkbox" />
-                <div class="swap-off"><img class="w-7" src="./images/icons8-facebook-like-24.png" alt=""></div>
-                <div class="swap-on"><img class="w-7" src="./images/icons8-facebook-like-24 (1).png" alt=""></div>
-            </label>
-            </button>
+             <button onclick="likebtn(${item.petId})" id="like-${item.petId}" class="btn">Like</button>
              <button onclick="adaptbtn(${item.petId})" id="adapt-${item.petId}" class="btn text-green-600 text-bold">Adopt</button>
              <button onclick="detailsData(${item.petId})" class="btn text-green-600 text-bold">Details</button>
            </div>
@@ -184,4 +202,5 @@ const detailsData = async (id) => {
 };
 
 loadingSpinner();
+// getPets();
 getCatagories();
