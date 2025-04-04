@@ -12,4 +12,4 @@
   
 - ES6 features used: Arrow Function, Template literals, For Loop, async and await.
 - 
-- Live link to the deployed project: 
+- Live link to the deployed project: https://b10a6-peddy-pets.netlify.app/
